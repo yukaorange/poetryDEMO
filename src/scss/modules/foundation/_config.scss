@@ -1,0 +1,62 @@
+@use "../variables/variables";
+@use "../mixin/mixin";
+
+/* ===============================================
+# 基本設定
+=============================================== */
+body {
+  font-family: "Marcellus", fot-tsukuardgothic-std, sans-serif;
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}
+
+p {
+  @include mixin.text(13, 15, 1.5, 0.118);
+  color: variables.$black;
+  letter-spacing: 0.118em;
+}
+
+a {
+  @include mixin.text(13, 15, 1.5, 0.118);
+  text-decoration: none;
+  color: variables.$black;
+  letter-spacing: 0.118em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+h1 {
+  @include mixin.text(48, 90, 1.2, 0.2);
+  color: variables.$black;
+  letter-spacing: 0.2em;
+}
+
+h2 {
+  @include mixin.text(32, 40, 1.2, 0.172);
+  color: variables.$black;
+  letter-spacing: 0.172em;
+}
+
+h3 {
+  @include mixin.text(18, 24, 1.2, 0.172);
+  color: variables.$black;
+  letter-spacing: 0.103em;
+}
+
+/* ========================================
+# リストスタイル
+======================================== */
+li {
+  list-style: none;
+}
+
+/* ========================================
+# bodyタグ
+======================================== */
+
+.body {
+  margin: 0;
+  // モーダル展開時など想定
+  overflow-x: hidden;
+}

@@ -1,0 +1,18 @@
+<% 
+  //baseUrl ルートディレクトリURLは呼び出し元から受け取る
+  //page変数 ページ指定は呼び出し元から受け取る
+  let current = json[page];
+  let defaultData = json['default'];
+  for ( let key in defaultData ) {
+    if ( typeof json[page][key] === 'undefined' ) {
+      json[page][key] = defaultData[key];
+    }
+  }
+  ;%>
+<!-- OGP -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="<%= current.title ;%>" />
+<meta property="og:description" content="<%= current.description ;%>" />
+<meta property="og:site_name" content="<%= json.default.title ;%>" />
+<meta name="twitter:card" content="summary">
+<meta property="og:image" content="" />

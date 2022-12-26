@@ -1,0 +1,58 @@
+@use "../variables/variables";
+@use "../mixin/mixin";
+
+.drawer-nav {
+  $this: &;
+  display: none;
+
+  @include mixin.large {
+    //タブレット大・ノートPC（1024px）
+    display: block;
+    position: fixed; //モバイル以下でドロワーメニューに変形
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(20%, -100%);
+    &.active {
+      animation: drawer forwards 0.8s ease;
+      @keyframes drawer {
+        0% {
+          transform: translate(0%, 20%);
+          opacity: 0;
+        }
+        100% {
+          transform: translate(0%, 0%);
+
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &_links {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    place-items: center;
+    li {
+      padding: 0 19px;
+      &:last-child {
+        padding: 0 0 0 19px;
+      }
+      a {
+        color: variables.$white;
+        @include mixin.large {
+          //タブレット大・ノートPC（1024px）
+          font-size: 32px;
+        }
+      }
+    }
+
+    @include mixin.large {
+      //タブレット大・ノートPC（1024px）
+      height: 50%;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 1fr);
+    }
+  }
+}

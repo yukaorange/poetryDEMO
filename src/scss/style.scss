@@ -1,0 +1,16 @@
+// フォント、画像の初期設定
+@use"../scss/modules/foundation/foundation";
+// 変数
+@use"../scss/modules/variables/variables";
+// mixin
+@use"../scss/modules/mixin/mixin";
+// header、、footer、sidebar
+@use"../scss/modules/layout/layout";
+//共通パーツ
+@use"../scss/modules/component/component";
+// 各部スタイル
+@use"../scss/modules/project/project";
+// プラグイン
+@use"../scss/modules/plugin/plugin";
+
+

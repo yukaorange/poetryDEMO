@@ -1,0 +1,34 @@
+<% 
+  //baseUrl ルートディレクトリURLは呼び出し元から受け取る
+  //page ページ指定は呼び出し元から受け取る
+  let current = json[page];
+  let defaultData = json['default'];
+  for ( let key in defaultData ) {
+    if ( typeof json[page][key] === 'undefined' ) {
+      json[page][key] = defaultData[key];
+    }
+  }
+  ;%>
+<!DOCTYPE html>
+<html lang="ja">
+
+<head prefix=”og:http://ogp.me/ns#”>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
+  <meta name="description" content="<%= current.description ;%>">
+  <meta name="robots" content="noindex">
+  <% if(page== "home"){;%>
+  <title><%= json.default.title ;%> | <%= current.description ;%></title>
+  <% }else{ ;%>
+  <title><%= current.title ;%>|<%= json.default.title ;%></title>
+  <% } ;%>
+  <%- include('_ogp') ;%>
+  <!-- ファビコン -->
+  
+  <!-- スタイルシート -->
+  <%- include("../_font/_fonts.ejs") ;%>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="body">

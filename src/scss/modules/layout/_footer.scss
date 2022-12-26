@@ -1,0 +1,18 @@
+@use "../variables/variables";
+@use "../mixin/mixin";
+
+.footer {
+  display: none;
+  &_wrapper {
+  }
+  &_inner {
+    @include mixin.inner;
+    display: grid;
+  }
+  &_nav {
+    margin-left: auto;
+    display: grid;
+    align-content: center;
+    height: mixin.myClamp(80, 100);
+  }
+}

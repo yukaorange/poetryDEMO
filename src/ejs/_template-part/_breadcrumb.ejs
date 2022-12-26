@@ -1,0 +1,26 @@
+<% 
+  //baseUrl ルートディレクトリURLは呼び出し元から受け取る
+  //page変数 ページ指定は呼び出し元から受け取る
+  let current = json[page];
+  let defaultData = json['default'];
+  for ( let key in defaultData ) {
+    if ( typeof json[page][key] === 'undefined' ) {
+      json[page][key] = defaultData[key];
+    }
+  }
+  ;%>
+<% if(page !== "home"){ %>
+<!-- breadcrumb -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "",
+      "item": ""
+    }]
+  }
+</script>
+<% }%>

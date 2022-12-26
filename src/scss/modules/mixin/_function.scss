@@ -1,0 +1,8 @@
+@use "../variables/variables";
+@use "./media";
+
+@function myClamp($min: 0, $max: 0, $minView: variables.$minView, $maxView: variables.$maxView) {
+  $a: ($max - $min) / ($maxView - $minView);
+  $b: ($min - $a * $minView);
+  @return clamp(#{$min}px, #{$a * 100}vw + #{$b}px, #{$max}px);
+}

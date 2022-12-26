@@ -1,0 +1,50 @@
+{
+  "default": {
+    "linkName": "default",
+    "title": "",
+    "description": "",
+    "copy": "",
+    "ogp_img": "./images/",
+    "favicon": "./images/",
+    "siteName": "default",
+    "linkJp": "",
+    "linkEn": "",
+    "url": "#service"
+  },
+  "home": {
+    "title": "HOME",
+    "linkJp": "ホーム",
+    "linkEn": "HOME",
+    "url": "#home"
+  },
+  "introduction": {
+    "title": "introduction",
+    "linkJp": "はじめての方へ",
+    "linkEn": "INTRODUCTION",
+    "url": "#introduction"
+  },
+  "about": {
+    "title": "about",
+    "linkJp": "当院について",
+    "linkEn": "ABOUT",
+    "url": "#about"
+  },
+  "service": {
+    "title": "service",
+    "linkJp": "施術メニュー・料金",
+    "linkEn": "SERVICE",
+    "url": "#service"
+  },
+  "news": {
+    "title": "news",
+    "linkJp": "新着情報",
+    "linkEn": "NEWS",
+    "url": "#news"
+  },
+  "access": {
+    "title": "access",
+    "linkJp": "アクセス",
+    "linkEn": "ACCESS",
+    "url": "#access"
+  }
+}

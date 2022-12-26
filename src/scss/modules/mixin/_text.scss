@@ -1,0 +1,16 @@
+@use "../variables/variables";
+@use "./media";
+/* ======================================================
+# テキストのスタイル ※p、h1など以外でも流用するため、コチラにて定義（例 dt、dd）
+======================================================= */
+// @mixin text($min: 14, $max: 16, $val: 16, $view: 1100, $lineheight: 1.5) {
+//   font-size: clamp(#{calc($min / 16)}rem, #{$val / $view * 100}vw, #{calc($max/16)}rem);
+//   line-height: $lineheight;
+// }
+@mixin text($minFontSize: 14, $maxFontSize: 16, $lineHeight: 1.5, $letterSpacing: 0.05, $minView: variables.$minView, $maxView: variables.$maxView) {
+  $a: ($maxFontSize - $minFontSize) / ($maxView - $minView);
+  $b: ($minFontSize - $a * $minView);
+  font-size: clamp(#{$minFontSize}px, #{$a * 100}vw + #{$b}px , #{$maxFontSize}px);
+  line-height: $lineHeight;
+  letter-spacing: #{$letterSpacing}em;
+}

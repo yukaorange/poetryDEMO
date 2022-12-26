@@ -1,0 +1,12 @@
+@use "../variables/variables";
+@use "../mixin/media";
+@use "../mixin/function";
+/* ========================================
+# コンテンツ幅
+======================================== */
+@mixin inner {
+  max-width: calc(1100px + 2rem);//デザインの指定幅+余白
+  padding: 0 1rem;//余白
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,12 @@
+<% let current = json[page]; ;%>
+<nav class="drawer-nav" id="drawer-nav">
+  <ul class="drawer-nav_links">
+    <% for(let obj in json){ %>
+    <% if(obj !== "default"){ %>
+    <li>
+      <a href="<%= json[obj].url ;%>"><%= json[obj].title ;%></a>
+    </li>
+    <% }%>
+    <% };%>
+  </ul>
+</nav>

@@ -1,0 +1,18 @@
+@use "../variables/variables";
+@use "../mixin/mixin";
+
+.gnav {
+  $this: &;
+  &_links {
+    display: grid;
+    grid-auto-flow: column;
+    gap: mixin.myClamp(16, 32);
+    li {
+      &:last-child {
+      }
+      a {
+        color: variables.$white;
+      }
+    }
+  }
+}

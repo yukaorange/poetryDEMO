@@ -1,0 +1,6 @@
+@use "../variables/variables";
+@use "../mixin/mixin";
+
+.section {
+  $this: &;
+}

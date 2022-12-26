@@ -1,0 +1,11 @@
+@use "../variables/variables";
+@use "../mixin/mixin";
+
+.button{
+  &.read-more{
+    display: inline-block;
+    width: 242px;
+    padding: 17px 0 16px;
+    text-align: center;
+  }
+}

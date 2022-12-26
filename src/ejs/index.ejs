@@ -1,0 +1,11 @@
+<% 
+let page = 'home' //ページ名
+;%>
+<%- include('./_template-part/_head',{page:page});%>
+<!-- 
+<%- include('./_template-part/_header',{page:page});%>
+-->
+<main class="main">
+  <%- include('./_component/_components-developing');%>
+</main>
+<%- include('./_template-part/_footer',{page:page}) ;%>

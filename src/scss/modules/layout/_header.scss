@@ -1,0 +1,28 @@
+@use "../variables/variables";
+@use "../mixin/mixin";
+
+.header {
+  $this: &;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  backdrop-filter: saturate(180%) blur(10px);
+  &_wrapper {
+  }
+  &_inner {
+    @include mixin.inner;
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  &_logo {
+  }
+
+  &_nav {
+    margin-left: auto;
+    display: grid;
+    align-content: center;
+    height: mixin.myClamp(80, 100);
+  }
+}
