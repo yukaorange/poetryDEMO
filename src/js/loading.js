@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+
 export class progressLoading {
   constructor(elements, log, progress) {
     this.lengthArray = [];
@@ -30,7 +32,7 @@ export class progressLoading {
       setTimeout(() => {
         this.loadXHR(elements[i], i);
       }, `${i * 100}`);
-      console.log(`画像読み込み${i}`);
+      console.log(`画像読み込み${i + 1}枚目完了`);
     }
   }
 
@@ -48,7 +50,8 @@ export class progressLoading {
     this.progress.textContent = `now loading...${Math.floor(percent)}%`;
     this.addLog(`${e.type}: ${this.sumLoaded} bytes 受信済み`);
     if (percent === 100) {
-      this.progress.classList.add("loaded");
+      document.body.classList.add("loaded");
+      console.log("ロード完了→アニメーション発火");
     }
   }
 
