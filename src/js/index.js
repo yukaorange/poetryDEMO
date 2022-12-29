@@ -9,43 +9,45 @@ new progressLoading(
   document.querySelector("#progress")
 );
 
-window.addEventListener("load", () => {
-  gsap.to("#progress", {
-    delay: 0.4,
-    duration: 1.2,
-    autoAlpha: 0,
-  });
-  // gsap.to("#log", {
-  //   delay: 0.4,
-  //   duration: 1.2,
-  //   autoAlpha: 0,
-  // });
-});
-
 gsap.registerPlugin(ScrollTrigger);
 
 let animation = new Sketch({
   dom: document.querySelector(".canvas"),
 });
 
-gsap.to(animation.settings, {
-  duration: 2.4,
-  progress: 1,
-  ease: "expo.inOut",
-});
-
 const wrapper = document.querySelector(".wrapper");
 const borders = document.querySelectorAll(".border");
 
+gsap.set(wrapper, {
+  xPercent: 100,
+});
+const tl = gsap.timeline();
+tl.to(animation.settings, {
+  delay: 1.5,
+  duration: 2.4,
+  progress: 1,
+  ease: "expo.inOut",
+}).to(
+  wrapper,
+  {
+    xPercent: 50,
+    duration: 1.2,
+    delay: 0.2,
+  },
+);
+
 gsap.to(wrapper, {
-  x: "-2500px",
+  x: "-3500px",
   scrollTrigger: {
+    // delay: 0.5,
     trigger: "#container",
     start: "top top",
+    end: "+=3000",
     pin: true,
-    scrub: 2.4,
+    scrub: 1,
+    // markers: 1,
     onUpdate: (self) => {
-      animation.time = self.progress * 10;
+      animation.time = self.progress * 25;
     },
     onLeave: () => {
       borders.forEach((border) => {

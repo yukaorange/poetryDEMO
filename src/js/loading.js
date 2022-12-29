@@ -23,9 +23,15 @@ export class progressLoading {
     this.addLog(`合計 ${this.sum(this.lengthArray)} bytes のデータ`);
 
     //画像をロードする
-    elements.forEach((elm, index) => {
-      this.loadXHR(elm, index);
-    });
+    // elements.forEach((elm, index) => {
+    //   this.loadXHR(elm, index);
+    // });
+    for (let i = 0; i < elements.length; i++) {
+      setTimeout(() => {
+        this.loadXHR(elements[i], i);
+      }, `${i * 100}`);
+      console.log(`画像読み込み${i}`);
+    }
   }
 
   sum(array) {
@@ -38,10 +44,12 @@ export class progressLoading {
     this.loadedArray[index] = e.loaded;
     this.sumLoaded = this.sum(this.loadedArray);
     const percent = (this.sumLoaded / this.sumLength) * 100;
-
-    this.progress.setAttribute("style", `width:${percent}%`);
+    // this.progress.setAttribute("style", `width:${percent}%`);
     this.progress.textContent = `now loading...${Math.floor(percent)}%`;
     this.addLog(`${e.type}: ${this.sumLoaded} bytes 受信済み`);
+    if (percent === 100) {
+      this.progress.classList.add("loaded");
+    }
   }
 
   addLog(text) {
