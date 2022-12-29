@@ -1,6 +1,26 @@
 @use "../variables/variables";
 @use "../mixin/mixin";
 
+#log {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+}
+
+#progress {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background-color:variables.$black;
+  color: white;
+}
+
 #container {
   $this: &;
   height: 100vh;
@@ -23,7 +43,7 @@ canvas {
   gap: 0 10vh;
   // position: absolute;
   position: fixed;
-  z-index: 100;
+  z-index: 10;
   grid-auto-flow: column;
   // overflow-x: hidden;
   margin-bottom: 20vh;

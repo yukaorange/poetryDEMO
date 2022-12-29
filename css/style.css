@@ -546,6 +546,26 @@ img {
   text-align: center;
 }
 
+#log {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+}
+
+#progress {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background-color: #323232;
+  color: white;
+}
+
 #container {
   height: 100vh;
   width: 100vw;
@@ -567,7 +587,7 @@ canvas {
   grid-template-columns: repeat(auto-fill, 20vh);
   gap: 0 10vh;
   position: fixed;
-  z-index: 100;
+  z-index: 10;
   grid-auto-flow: column;
   margin-bottom: 20vh;
 }
