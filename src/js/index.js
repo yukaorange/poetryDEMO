@@ -21,19 +21,33 @@ gsap.set(wrapper, {
   xPercent: 100,
 });
 
-let flag =  false;
-loadedChecker();
-function loadedChecker() {
-  requestAnimationFrame(() => {
-    if (document.body.classList.contains("loaded") & flag == false) {
-      loadingAnimation();
-      flag = true;
-    }
-    loadedChecker();
-  });
-}
+// let flag =  false;
+// loadedChecker();
+// function loadedChecker() {
+//   requestAnimationFrame(() => {
+//     if (document.body.classList.contains("loaded") & flag == false) {
+//       flag = true;
+//     }
+//     loadedChecker();
+//   });
+// }
+// 要素を取得
+const element = document.querySelector("body");
 
-async function loadingAnimation() {
+// MutationObserverのインスタンスを生成
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    // クラス属性が追加された場合
+    if (mutation.type === "attributes" && mutation.attributeName === "class") {
+      loadingAnimation();
+    }
+  });
+});
+
+// MutationObserverを開始
+observer.observe(element, { attributes: true });
+
+function loadingAnimation() {
   const tl = gsap.timeline();
   tl.to(loading.progress, {
     autoAlpha: 0,
@@ -45,11 +59,15 @@ async function loadingAnimation() {
       progress: 1,
       ease: "expo.inOut",
     })
-    .to(wrapper, {
-      xPercent: 50,
-      duration: 1.2,
-      delay: 0.2,
-    },"-=0.4");
+    .to(
+      wrapper,
+      {
+        xPercent: 50,
+        duration: 1.2,
+        delay: 0.2,
+      },
+      "-=0.4"
+    );
 }
 
 //スクロールアニメーション
